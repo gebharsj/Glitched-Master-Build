@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 9a0f9318a396b415ca60386aaf05a395
 timeCreated: 1474846920
 licenseType: Free
@@ -24,6 +25,13 @@ TextureImporter:
     21300034: GL_frankW_spritesheet_walk_full walkwitharm_ver.001_17
     21300036: GL_frankW_spritesheet_walk_full walkwitharm_ver.001_18
     21300038: GL_frankW_spritesheet_walk_full walkwitharm_ver.001_19
+=======
+guid: a2fbad01bf6944a7bb4dee46ec5f76a9
+timeCreated: 1474931298
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName: {}
+>>>>>>> Prefab
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -49,8 +57,13 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
+<<<<<<< HEAD
     filterMode: 2
     aniso: 16
+=======
+    filterMode: -1
+    aniso: -1
+>>>>>>> Prefab
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -58,7 +71,11 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
+<<<<<<< HEAD
   spriteMode: 2
+=======
+  spriteMode: 1
+>>>>>>> Prefab
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -71,6 +88,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
+<<<<<<< HEAD
     sprites:
     - serializedVersion: 2
       name: GL_frankW_spritesheet_walk_full walkwitharm_ver.001_0
@@ -332,6 +350,9 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
+=======
+    sprites: []
+>>>>>>> Prefab
     outline: []
   spritePackingTag: 
   userData: 
