@@ -3,62 +3,68 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-    private Rigidbody2D rigidPlayer;
-    public float speed = 5f;
+	private Rigidbody2D rigidPlayer;
+	public float speed = 5f;
 
-    [SerializeField]
-    private float playerSpeed;
+	[SerializeField]
+	private float playerSpeed;
 
-    private bool playerFacingRight;
+	private bool playerFacingRight;
 
-    // Use this for initialization
-    void Start ()
-    {
-        playerFacingRight = true;
+	// Use this for initialization
+	void Start ()
+	{
+		playerFacingRight = true;
 
-        rigidPlayer = GetComponent<Rigidbody2D>();
+		rigidPlayer = GetComponent<Rigidbody2D>();
 	}
-	
+
 	// Update is called once per frame
 	void FixedUpdate ()
-    {
-        float horizontal = Input.GetAxis("Horizontal");
+	{
+		float horizontal = Input.GetAxis("Horizontal");
 
-        float vertical = Input.GetAxis("Vertical");
+		float vertical = Input.GetAxis("Vertical");
 
-        HandleMovement(horizontal);
+		HandleMovement(horizontal);
 
-        HandleMovement1(vertical);
+		HandleMovement1(vertical);
 
-        Flip(horizontal);
+		Flip(horizontal);
 
-        if(Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            transform.position += new Vector3(speed * Time.deltaTime, 0.0f, 0.0f);
-        }
-    }
+		if(Input.GetKeyDown(KeyCode.LeftShift))
+		{
+			transform.position += new Vector3(speed * Time.deltaTime, 0.0f, 0.0f);
+		}
 
-    private void HandleMovement(float horizontal)
-    {
-        rigidPlayer.velocity = new Vector2(horizontal * playerSpeed, rigidPlayer.velocity.y);
-    }
+		Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+		Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+		transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
 
-    private void HandleMovement1(float vertical)
-    {
-        rigidPlayer.velocity = new Vector2(rigidPlayer.velocity.x, vertical * playerSpeed);
-    }
+	}
 
-    private void Flip(float horizontal)
-    {
-        if (horizontal > 0 && !playerFacingRight || horizontal < 0 && playerFacingRight)
-        {
-            playerFacingRight = !playerFacingRight;
+	private void HandleMovement(float horizontal)
+	{
+		rigidPlayer.velocity = new Vector2(horizontal * playerSpeed, rigidPlayer.velocity.y);
+	}
 
-            Vector3 theScale = transform.localScale;
+	private void HandleMovement1(float vertical)
+	{
+		rigidPlayer.velocity = new Vector2(rigidPlayer.velocity.x, vertical * playerSpeed);
+	}
 
-            theScale.x *= 1;
+	private void Flip(float horizontal)
+	{
+		if (horizontal > 0 && !playerFacingRight || horizontal < 0 && playerFacingRight)
+		{
+			playerFacingRight = !playerFacingRight;
 
-            transform.localScale = theScale;
-        }
-    }
+			Vector3 theScale = transform.localScale;
+
+			theScale.x *= 1;
+
+			transform.localScale = theScale;
+		}
+	}
 }
