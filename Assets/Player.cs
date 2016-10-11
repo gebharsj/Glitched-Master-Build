@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	private Rigidbody2D rigidPlayer;
+	private Rigidbody rigidPlayer;
 	public float speed = 5f;
 
 	[SerializeField]
@@ -16,7 +16,7 @@ public class Player : MonoBehaviour {
 	{
 		playerFacingRight = true;
 
-		rigidPlayer = GetComponent<Rigidbody2D>();
+		rigidPlayer = GetComponent<Rigidbody>();
 	}
 
 	// Update is called once per frame
